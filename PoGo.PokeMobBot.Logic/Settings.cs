@@ -486,6 +486,47 @@ namespace PoGo.PokeMobBot.Logic
             else
             {
                 settings = new GlobalSettings();
+                int choice;
+
+                Logger.Write("1. Santa Monica Pier (California)", LogLevel.Info); //34.011366, -118.494344
+                Logger.Write("2. Tokyo Disney (Japan)", LogLevel.Info); //35.63034, 139.881754
+                Logger.Write("3. Central Park (New York)", LogLevel.Info); //40.7829, -73.9654
+                Logger.Write("4. Sydney (Austrailia)", LogLevel.Info); //-33.870674, 151.208868
+                Logger.Write("Specify a popular default location:", LogLevel.Info);
+                while (!int.TryParse(Console.ReadLine(), out choice) || choice < 1 || choice > 4)
+                    Logger.Write("The value is invalid. Try again.", LogLevel.Warning);
+
+                switch (choice)
+                {
+                    case 1:
+                        Logger.Write("Setting location to Santa Monica Pier (California).", LogLevel.Info);
+                        settings.DefaultLatitude = 34.011366;
+                        settings.DefaultLongitude = -118.494344;
+                        break;
+
+                    case 2:
+                        Logger.Write("Setting location to Tokyo Disney (Japan).", LogLevel.Info);
+                        settings.DefaultLatitude = 35.63034;
+                        settings.DefaultLongitude = 139.881754;
+                        break;
+
+                    case 3:
+                        Logger.Write("Setting location to Central Park (New York).", LogLevel.Info);
+                        settings.DefaultLatitude = 40.7829;
+                        settings.DefaultLongitude = -73.9654;
+                        break;
+
+                    case 4:
+                        Logger.Write("Setting location to Sydney (Austrailia).", LogLevel.Info);
+                        settings.DefaultLatitude = -33.870674;
+                        settings.DefaultLongitude = 151.208868;
+                        break;
+
+                    default:
+                        Logger.Write("Could not set customized location. Using default.", LogLevel.Warning);
+                        break;
+
+                }
             }
 
             if (settings.WebSocketPort == 0)
