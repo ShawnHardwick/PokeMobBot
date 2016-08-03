@@ -140,27 +140,16 @@ namespace PoGo.PokeMobBot.Logic
         int UseBerryMinCp { get; }
         float UseBerryMinIv { get; }
         double UseBerryBelowCatchProbability { get; }
-
-        //favorite
-
+         
+        //favorite 
+         
         //recycle
         int TotalAmountOfPokeballsToKeep { get; }
-        int TotalAmountOfGreatballsToKeep { get; }
-        int TotalAmountOfUltraballsToKeep { get; }
-        int TotalAmountOfMasterballsToKeep { get; }
         int TotalAmountOfPotionsToKeep { get; }
-        int TotalAmountOfSuperPotionsToKeep { get; }
-        int TotalAmountOfHyperPotionsToKeep { get; }
-        int TotalAmountOfMaxPotionsToKeep { get; }
         int TotalAmountOfRevivesToKeep { get; }
-        int TotalAmountOfMaxRevivesToKeep { get; }
-        int TotalAmountOfRazzToKeep { get; }
-        //int TotalAmountOfBerriesToKeep { get; }
-        //int TotalAmountOfBlukToKeep { get; }
-        //int TotalAmountOfNanabToKeep { get; }
-        //int TotalAmountOfPinapToKeep { get; }
+        int TotalAmountOfBerriesToKeep { get; }
         double RecycleInventoryAtUsagePercentage { get; }
-
+        
         //snipe
         bool SnipeAtPokestops { get; }
         bool SnipeIgnoreUnknownIv { get; }

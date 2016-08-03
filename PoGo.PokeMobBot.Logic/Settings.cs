@@ -192,21 +192,10 @@ namespace PoGo.PokeMobBot.Logic
         public float FavoriteMinIvPercentage = 95;
 
         //recycle
-        public int TotalAmountOfPokeballsToKeep = 75;
-        public int TotalAmountOfGreatballsToKeep = 50;
-        public int TotalAmountOfUltraballsToKeep = 50;
-        public int TotalAmountOfMasterballsToKeep = 50;
-        public int TotalAmountOfPotionsToKeep = 0;
-        public int TotalAmountOfSuperPotionsToKeep = 0;
-        public int TotalAmountOfHyperPotionsToKeep = 0;
-        public int TotalAmountOfMaxPotionsToKeep = 20;
-        public int TotalAmountOfRevivesToKeep = 20;
-        public int TotalAmountOfMaxRevivesToKeep = 30;
-        public int TotalAmountOfRazzToKeep = 40;
-        //public int TotalAmountOfBlukToKeep = 40;
-        //public int TotalAmountOfNanabToKeep = 40;
-        //public int TotalAmountOfPinapToKeep = 40;
-        //public int TotalAmountOfWeparToKeep = 40;
+        public int TotalAmountOfPokeballsToKeep = 100;
+        public int TotalAmountOfPotionsToKeep = 80;
+        public int TotalAmountOfRevivesToKeep = 60;
+        public int TotalAmountOfBerriesToKeep = 80;
         public double RecycleInventoryAtUsagePercentage = 0.90;
 
         //snipe
@@ -736,20 +725,9 @@ namespace PoGo.PokeMobBot.Logic
         public int MinDelayBetweenSnipes => _settings.MinDelayBetweenSnipes;
         public double SnipingScanOffset => _settings.SnipingScanOffset;
         public int TotalAmountOfPokeballsToKeep => _settings.TotalAmountOfPokeballsToKeep;
-        public int TotalAmountOfGreatballsToKeep => _settings.TotalAmountOfGreatballsToKeep;
-        public int TotalAmountOfUltraballsToKeep => _settings.TotalAmountOfUltraballsToKeep;
-        public int TotalAmountOfMasterballsToKeep => _settings.TotalAmountOfMasterballsToKeep;
-        public int TotalAmountOfRazzToKeep => _settings.TotalAmountOfRazzToKeep;
-        //public int TotalAmountOfBlukToKeep => _settings.TotalAmountOfBlukToKeep;
-        //public int TotalAmountOfNanabToKeep => _settings.TotalAmountOfNanabToKeep;
-        //public int TotalAmountOfPinapToKeep => _settings.TotalAmountOfPinapToKeep;
-        //public int TotalAmountOfWeparToKeep => _settings.TotalAmountOfWeparToKeep;
+        public int TotalAmountOfBerriesToKeep => _settings.TotalAmountOfBerriesToKeep;
         public int TotalAmountOfPotionsToKeep => _settings.TotalAmountOfPotionsToKeep;
-        public int TotalAmountOfSuperPotionsToKeep => _settings.TotalAmountOfSuperPotionsToKeep;
-        public int TotalAmountOfHyperPotionsToKeep => _settings.TotalAmountOfHyperPotionsToKeep;
-        public int TotalAmountOfMaxPotionsToKeep => _settings.TotalAmountOfMaxPotionsToKeep;
         public int TotalAmountOfRevivesToKeep => _settings.TotalAmountOfRevivesToKeep;
-        public int TotalAmountOfMaxRevivesToKeep => _settings.TotalAmountOfRevivesToKeep;
         public bool Teleport => _settings.Teleport;
         public int DelayCatchIncensePokemon => _settings.DelayCatchIncensePokemon;
         public int DelayCatchNearbyPokemon => _settings.DelayCatchNearbyPokemon;
