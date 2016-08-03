@@ -101,44 +101,43 @@ namespace PoGo.PokeMobBot.Logic
         [JsonIgnore] public string ProfilePath;
         [JsonIgnore] public string ProfileConfigPath;
 
-        //bot start
-        public bool AutoUpdate = true;
+        public bool AutoUpdate = false;
         public bool TransferConfigAndAuthOnUpdate = true;
-        public bool DumpPokemonStats = false;
+        public bool DumpPokemonStats = true;
         public int AmountOfPokemonToDisplayOnStart = 10;
         public bool StartupWelcomeDelay = false;
         public string TranslationLanguageCode = "en";
         public int WebSocketPort = 14251;
 
         //coords and movement
-        public bool Teleport = false;
-        public double DefaultLatitude = 40.785091;
-        public double DefaultLongitude = -73.968285;
+        public bool Teleport = true;
+        public double DefaultLatitude = 0.0;
+        public double DefaultLongitude = 0.0;
         public double DefaultAltitude = 10;
-        public double WalkingSpeedInKilometerPerHour = 15.0;
+        public double WalkingSpeedInKilometerPerHour = 50.0;
         public int MaxSpawnLocationOffset = 10;
         public int MaxTravelDistanceInMeters = 1000;
         public bool UseGpxPathing = false;
         public string GpxFile = "GPXPath.GPX";
 
         //delays
-        public int DelayBetweenPlayerActions = 5000;
-        public int DelayPositionCheckState = 1000;
-        public int DelayPokestop = 1000;
-        public int DelayCatchPokemon = 1000;
-        public int DelayBetweenPokemonCatch = 2000;
-        public int DelayCatchNearbyPokemon = 1000;
-        public int DelayCatchLurePokemon = 1000;
-        public int DelayCatchIncensePokemon = 1000;
-        public int DelayEvolvePokemon = 1000;
+        public int DelayBetweenPlayerActions = 5;
+        public int DelayPositionCheckState = 5;
+        public int DelayPokestop = 5;
+        public int DelayCatchPokemon = 5;
+        public int DelayBetweenPokemonCatch = 5;
+        public int DelayCatchNearbyPokemon = 5;
+        public int DelayCatchLurePokemon = 5;
+        public int DelayCatchIncensePokemon = 5;
+        public int DelayEvolvePokemon = 5;
         public double DelayEvolveVariation = 0.3;
-        public int DelayTransferPokemon = 1000;
-        public int DelayDisplayPokemon = 1000;
-        public int DelayUseLuckyEgg = 1000;
-        public int DelaySoftbanRetry = 1000;
-        public int DelayRecyleItem = 1000;
-        public int DelaySnipePokemon = 1000;
-        public int MinDelayBetweenSnipes = 60000;
+        public int DelayTransferPokemon = 5;
+        public int DelayDisplayPokemon = 5;
+        public int DelayUseLuckyEgg = 5;
+        public int DelaySoftbanRetry = 5;
+        public int DelayRecyleItem = 5;
+        public int DelaySnipePokemon = 5;
+        public int MinDelayBetweenSnipes = 10000;
         public double SnipingScanOffset = 0.003;
 
         //incubator
@@ -146,19 +145,19 @@ namespace PoGo.PokeMobBot.Logic
 
         //rename
         public bool RenamePokemon = false;
-        public bool RenameOnlyAboveIv = true;
+        public bool RenameOnlyAboveIv = false;
         public string RenameTemplate = "{1}_{0}";
 
         //transfer
         public bool TransferDuplicatePokemon = true;
         public bool PrioritizeIvOverCp = true;
-        public int KeepMinCp = 1250;
-        public float KeepMinIvPercentage = 95;
+        public int KeepMinCp = 2500;
+        public float KeepMinIvPercentage = 100;
         public int KeepMinDuplicatePokemon = 1;
         public bool KeepPokemonsThatCanEvolve = false;
 
         //evolve
-        public bool EvolveAllPokemonWithEnoughCandy = false;
+        public bool EvolveAllPokemonWithEnoughCandy = true;
         public bool EvolveAllPokemonAboveIv = false;
         public float EvolveAboveIvValue = 95;
         public bool UseLuckyEggsWhileEvolving = false;
@@ -178,12 +177,12 @@ namespace PoGo.PokeMobBot.Logic
         public int MaxPokeballsPerPokemon = 6;
         public int UseGreatBallAboveIv = 80;
         public int UseUltraBallAboveIv = 90;
-        public double UseGreatBallBelowCatchProbability = 0.5;
-        public double UseUltraBallBelowCatchProbability = 0.25;
+        public double UseGreatBallBelowCatchProbability = 0.4;
+        public double UseUltraBallBelowCatchProbability = 0.20;
         public bool UsePokemonToNotCatchFilter = false;
 
         //berries
-        public int UseBerryMinCp = 450;
+        public int UseBerryMinCp = 1000;
         public float UseBerryMinIv = 95;
         public double UseBerryBelowCatchProbability = 0.25;
 
@@ -192,10 +191,10 @@ namespace PoGo.PokeMobBot.Logic
         public float FavoriteMinIvPercentage = 95;
 
         //recycle
-        public int TotalAmountOfPokeballsToKeep = 100;
-        public int TotalAmountOfPotionsToKeep = 80;
-        public int TotalAmountOfRevivesToKeep = 60;
-        public int TotalAmountOfBerriesToKeep = 80;
+        public int TotalAmountOfPokeballsToKeep = 200;
+        public int TotalAmountOfPotionsToKeep = 10;
+        public int TotalAmountOfRevivesToKeep = 5;
+        public int TotalAmountOfBerriesToKeep = 20;
         public double RecycleInventoryAtUsagePercentage = 0.90;
 
         //snipe
@@ -272,54 +271,64 @@ namespace PoGo.PokeMobBot.Logic
 
         public List<PokemonId> PokemonsToEvolve = new List<PokemonId>
         {
-            /*NOTE: keep all the end-of-line commas exept for the last one or an exception will be thrown!
-            criteria: 12 candies*/
+            PokemonId.Bulbasaur,
+            PokemonId.Charmander,
+            PokemonId.Squirtle,
             PokemonId.Caterpie,
             PokemonId.Weedle,
             PokemonId.Pidgey,
-            /*criteria: 25 candies*/
-            //PokemonId.Bulbasaur,
-            //PokemonId.Charmander,
-            //PokemonId.Squirtle,
             PokemonId.Rattata,
-            //PokemonId.NidoranFemale,
-            //PokemonId.NidoranMale,
-            //PokemonId.Oddish,
-            //PokemonId.Poliwag,
-            //PokemonId.Abra,
-            //PokemonId.Machop,
-            //PokemonId.Bellsprout,
-            //PokemonId.Geodude,
-            //PokemonId.Gastly,
-            //PokemonId.Eevee,
-            //PokemonId.Dratini,
-            /*criteria: 50 candies commons*/
             PokemonId.Spearow,
-            //PokemonId.Ekans,
+            PokemonId.Ekans,
+            PokemonId.Pikachu,
+            PokemonId.Sandshrew,
+            PokemonId.Nidoranmale,
+            PokemonId.Nidoranfemale,
+            PokemonId.Clefairy,
+            PokemonId.Vulpix,
+            PokemonId.Jigglypuff,
             PokemonId.Zubat,
-            //PokemonId.Paras,
-            //PokemonId.Venonat,
-            //PokemonId.Psyduck,
-            //PokemonId.Slowpoke,
-            PokemonId.Doduo
-            //PokemonId.Drowzee,
-            //PokemonId.Krabby,
-            //PokemonId.Horsea,
-            //PokemonId.Goldeen,
-            //PokemonId.Staryu
+            PokemonId.Oddish,
+            PokemonId.Paras,
+            PokemonId.Venonat,
+            PokemonId.Diglett,
+            PokemonId.Meowth,
+            PokemonId.Psyduck,
+            PokemonId.Mankey,
+            PokemonId.Growlithe,
+            PokemonId.Poliwag,
+            PokemonId.Abra,
+            PokemonId.Machop,
+            PokemonId.Bellsprout,
+            PokemonId.Tentacool,
+            PokemonId.Geodude,
+            PokemonId.Ponyta,
+            PokemonId.Slowpoke,
+            PokemonId.Magnemite,
+            PokemonId.Doduo,
+            PokemonId.Seel,
+            PokemonId.Grimer,
+            PokemonId.Shellder,
+            PokemonId.Gastly,
+            PokemonId.Drowzee,
+            PokemonId.Krabby,
+            PokemonId.Voltorb,
+            PokemonId.Exeggcute,
+            PokemonId.Cubone,
+            PokemonId.Koffing,
+            PokemonId.Rhyhorn,
+            PokemonId.Horsea,
+            PokemonId.Goldeen,
+            PokemonId.Staryu,
+            PokemonId.Magikarp,
+            PokemonId.Eevee,
+            PokemonId.Omanyte,
+            PokemonId.Kabuto,
+            PokemonId.Dratini
         };
 
         public List<PokemonId> PokemonsToIgnore = new List<PokemonId>
-        {
-            //criteria: most common
-            PokemonId.Caterpie,
-            PokemonId.Weedle,
-            PokemonId.Pidgey,
-            PokemonId.Rattata,
-            PokemonId.Spearow,
-            PokemonId.Zubat,
-            PokemonId.Doduo
-        };
+        { };
 
         public Dictionary<PokemonId, TransferFilter> PokemonsTransferFilter = new Dictionary<PokemonId, TransferFilter>
         {
@@ -367,10 +376,6 @@ namespace PoGo.PokeMobBot.Logic
         {
             Locations = new List<Location>
             {
-                new Location(38.55680748646112, -121.2383794784546), //Dratini Spot
-                new Location(-33.85901900, 151.21309800), //Magikarp Spot
-                new Location(47.5014969, -122.0959568), //Eevee Spot
-                new Location(51.5025343, -0.2055027) //Charmender Spot
             },
             Pokemon = new List<PokemonId>
             {
